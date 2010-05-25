@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using nothinbutdotnetprep.utility.searching;
 
 namespace nothinbutdotnetprep.collections
 {
@@ -55,6 +56,8 @@ namespace nothinbutdotnetprep.collections
 
             return ReferenceEquals(this, other) || this.title == other.title;
         }
+
+       
     }
 
     public class MovieComparer : IComparer<Movie>
