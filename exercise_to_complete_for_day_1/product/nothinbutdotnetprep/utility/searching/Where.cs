@@ -1,13 +1,19 @@
 namespace nothinbutdotnetprep.utility.searching
 {
-    public delegate U PropertyAccessor<T, U>(T item);
+    public delegate PropertyType PointerToAProperty<ItemToFilter, PropertyType>(ItemToFilter item);
 
-    public class Where<T>
+    public class Where<ItemToFilter>
     {
-        public static CriteriaFactory<T, U> has_a<U>(
-            PropertyAccessor<T, U> accessor)
+        public static ComparableCriteriaFactory<ItemToFilter, PropertyType> has_an<PropertyType>(
+            PointerToAProperty<ItemToFilter, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            return new CriteriaFactory<T, U>(accessor);
+            return new ComparableCriteriaFactory<ItemToFilter, PropertyType>(accessor);
+        }
+
+        public static CriteriaFactory<ItemToFilter, PropertyType> has_a<PropertyType>(
+            PointerToAProperty<ItemToFilter, PropertyType> accessor)
+        {
+            return new CriteriaFactory<ItemToFilter, PropertyType>(accessor);
         }
     }
 }

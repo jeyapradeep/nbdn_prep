@@ -2,31 +2,27 @@
 
 namespace nothinbutdotnetprep.utility.searching
 {
-    public class CriteriaFactory<T, U>
+    public class CriteriaFactory<ItemToFilter, PropertyType>
     {
-        public PropertyAccessor<T, U> accessor;
+        public PointerToAProperty<ItemToFilter, PropertyType> accessor;
 
-        public CriteriaFactory(PropertyAccessor<T, U> accessor)
+        public CriteriaFactory(PointerToAProperty<ItemToFilter, PropertyType> accessor)
         {
             this.accessor = accessor;
         }
 
-        public Criteria<T> equal_to(U propertyValue)
+        public Criteria<ItemToFilter> equal_to(PropertyType propertyValue)
         {
-            return new PredicateCriteria<T>(x => accessor(x).Equals(propertyValue));
+            return new PredicateCriteria<ItemToFilter>(x => accessor(x).Equals(propertyValue));
         }
 
-        public Criteria<T> not_equal_to(U propertyValue)
+        public Criteria<ItemToFilter> equal_to_any(params PropertyType[] propertyValues)
         {
-            return new PredicateCriteria<T>(x => !accessor(x).Equals(propertyValue));
-        }
-
-        public Criteria<T> equal_to_any(params U[] propertyValues)
-        {
-            return new PredicateCriteria<T>(x =>
+            return new PredicateCriteria<ItemToFilter>(x =>
             {
-                return new List<U>(propertyValues).Contains(accessor(x));
-              
+                return
+                    new List<PropertyType>(propertyValues).Contains(
+                        accessor(x));
             });
         }
     }

@@ -45,6 +45,11 @@ namespace nothinbutdotnetprep.collections
             return title.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return title;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Movie);
@@ -59,6 +64,9 @@ namespace nothinbutdotnetprep.collections
 
        
     }
+
+
+
 
     public class MovieComparer : IComparer<Movie>
     {
