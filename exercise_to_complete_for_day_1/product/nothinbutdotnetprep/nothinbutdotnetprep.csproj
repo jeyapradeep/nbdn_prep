@@ -53,15 +53,25 @@
     <Compile Include="utility\searching\Criteria.cs" />
     <Compile Include="utility\searching\CriteriaExtensions.cs" />
     <Compile Include="utility\searching\CriteriaFactory.cs" />
+    <Compile Include="utility\searching\DefaultCriteriaFactory.cs" />
     <Compile Include="utility\searching\EqualToAnyCriteria.cs" />
     <Compile Include="utility\searching\EqualToCriteria.cs" />
     <Compile Include="utility\searching\FallsInRangeCriteria.cs" />
     <Compile Include="utility\searching\GreaterThanCriteria.cs" />
     <Compile Include="utility\searching\NotCriteria.cs" />
+    <Compile Include="utility\searching\NotCriteriaFactory.cs" />
     <Compile Include="utility\searching\OrCriteria.cs" />
     <Compile Include="utility\searching\FuncCriteria.cs" />
     <Compile Include="utility\searching\PropertyCriteria.cs" />
     <Compile Include="utility\searching\Where.cs" />
+    <Compile Include="utility\sorting\CombinedComparer.cs" />
+    <Compile Include="utility\sorting\ComparableComparer.cs" />
+    <Compile Include="utility\sorting\ComparerExtensions.cs" />
+    <Compile Include="utility\sorting\FixedComparer.cs" />
+    <Compile Include="utility\sorting\PropertyComparer.cs" />
+    <Compile Include="utility\sorting\ReverseComparer.cs" />
+    <Compile Include="utility\sorting\ComparerBuilder.cs" />
+    <Compile Include="utility\sorting\Sort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
